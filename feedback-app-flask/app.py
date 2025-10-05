@@ -7,9 +7,9 @@ app = Flask(__name__)
 
 # --- CONFIGURE DATABASE CONNECTION ---
 # Replace these with the details from your RDS instance
-DB_ENDPOINT = "paste-your-rds-endpoint-here"
-DB_USERNAME = "admin" # The username you chose
-DB_PASSWORD = "YourStrongPassword123" # The password you chose
+DB_ENDPOINT = "my-feedback-db-instance.cp8s8yy6cv49.ap-south-1.rds.amazonaws.com"
+DB_USERNAME = "soumil" # The username you chose
+DB_PASSWORD = "skDB1234" # The password you chose
 DB_NAME = "feedbackdb" # The DB name you chose
 # --- END OF CONFIGURATION ---
 
