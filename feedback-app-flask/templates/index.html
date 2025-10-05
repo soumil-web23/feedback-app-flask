@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 600px; margin: auto; }
+        .form-container { border: 1px solid #ccc; padding: 20px; border-radius: 5px; margin-bottom: 20px;}
+        .feedback { border: 1px solid #eee; padding: 10px; margin-top: 10px; border-radius: 5px; }
+        input, textarea { width: 95%; padding: 8px; margin-top: 5px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Leave Your Feedback</h2>
+        <div class="form-container">
+            <form action="/submit" method="post">
+                <label for="username">Your Name:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        <hr>
+        <h2>Comments</h2>
+        {% for feedback in feedbacks %}
+            <div class="feedback">
+                <p><strong>{{ feedback.username }}</strong> <small><em>({{ feedback.created_at }})</em></small></p>
+                <p>{{ feedback.message }}</p>
+            </div>
+        {% else %}
+            <p>No feedback yet. Be the first!</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
